@@ -1,31 +1,6 @@
 # stm32-freertos-dual-axis-control
 FreeRTOS-based STM32 motion control system driving a servo and 28BYJ-48 stepper motor using DMA-assisted dual-channel ADC sampling and PWM generation. This project was developped on an stm32-f746ZG nucleo-board.
 
-#Overview : 
-                      ┌─────────────────┐
-                      │  Analog Inputs  │ (2x Channels)
-                      └────────┬────────┘
-                               │
-                               ▼
-┌──────────────┐          ┌─────────────────┐
-│ EXTI PushBtn ├─────────►│  ADC3 + DMA2    │ (Continuous DMA transfers)
-└──────────────┘          └────────┬────────┘
-                                   │
-                                   ▼
-                          ┌──────────────────┐
-                          │ Hysteresis Filter│ (Threshold > 200)
-                          └────────┬─────────┘
-                                   │
-                  ┌────────────────┴────────────────┐
-                  ▼                                 ▼
-        ┌────────────────────┐            ┌────────────────────┐
-        │   TIM9 Channel 2   │            │   FreeRTOS Task 2  │
-        │    (PWM Servo)     │            │ (28BYJ-48 Stepper) │
-        └────────────────────┘            └────────────────────┘
-
-
----
-
 ## 🌟 Key Features
 
 - **Multi-Task Operating System:** Managed via **CMSIS-RTOS v2 (FreeRTOS)** for concurrent task scheduling and mutex protection.
