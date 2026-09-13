@@ -12,7 +12,7 @@ FreeRTOS-based STM32 motion control system driving a servo and 28BYJ-48 stepper 
 
 ---
 
-## 🛠️ Hardware & Hardware Configuration
+## 🛠️ Hardware Configuration
 
 | Peripheral | Instance | Configured Mode / Purpose |
 | :--- | :--- | :--- |
